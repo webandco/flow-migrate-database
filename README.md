@@ -14,7 +14,7 @@ Neos Flow plugin to run doctrine migrations and copy rows from a source to a des
 1. **Install this package using composer:**
 
   ```
-  composer require flowpack/jobqueue-common
+  composer require webandco/flow-migrate-database
   ```
 (or by adding the dependency to the composer manifest of an installed package)
 
