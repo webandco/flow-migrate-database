@@ -1,0 +1,20 @@
+{
+    "description": "",
+    "type": "neos-plugin",
+    "name": "webandco/flow-migrate-database",
+    "minimum-stability": "dev",
+    "require": {
+        "neos/flow": "*"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Webandco\\MigrateDatabase\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Webandco.MigrateDatabase"
+        }
+    }
+}

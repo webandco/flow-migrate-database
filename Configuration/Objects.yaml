@@ -1,0 +1,4 @@
+# The custom EntityManagerFactory checks an environment variable to allow commands to be run on package configured databases
+Doctrine\ORM\EntityManagerInterface:
+  scope: singleton
+  factoryObjectName: Webandco\MigrateDatabase\Persistence\Doctrine\EntityManagerFactory

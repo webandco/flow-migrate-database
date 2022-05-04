@@ -1,0 +1,46 @@
+Webandco:
+  MigrateDatabase:
+    ignoreTables:
+      - 'flow_doctrine_migrationstatus'
+    structure:
+      commands:
+        doctrineMigrate:
+          command: 'doctrine:migrate'
+#          arguments:
+#          # dryRun doesn't work because there are migrations that run SELECT statements on maybe an empty database without tables
+#            dryRun: true
+#        someFlowpackJobQueue:
+#          command: 'queue:setup'
+#          arguments:
+#            queue: 'imageOptimization'
+    connections:
+      source:
+        persistence:
+          doctrine:
+            # secondLevelCache is needed by the entitymanager
+            secondLevelCache:
+              enable: false
+          backendOptions:
+            driver: pdo_mysql
+            dbname: docker
+            user: root
+            password: root
+            host: mysql
+            charset: 'UTF8'
+            defaultTableOptions:
+              charset: 'UTF8'
+      destination:
+        persistence:
+          doctrine:
+            # secondLevelCache is needed by the entitymanager
+            secondLevelCache:
+              enable: false
+          backendOptions:
+            driver: pdo_pgsql
+            dbname: docker
+            user: postgres
+            password: root
+            host: postgres
+            charset: 'UTF8'
+            defaultTableOptions:
+              charset: 'UTF8'
