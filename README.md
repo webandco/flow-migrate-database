@@ -7,6 +7,7 @@ Neos Flow plugin to run doctrine migrations and copy rows from a source to a des
 * [Quickstart](#quickstart)
 * [Introduction](#introduction)
 * [Command Line Interface](#command-line-interface)
+* [Performance](#performance)
 * [License](#license)
 
 ## Quickstart
@@ -105,6 +106,11 @@ Use the `webandco.migratedatabase:migration:*` commands to run the migration:
 | -------------------------- |----------------------------------------------------------------------------------------|
 | migration:createStructure  | Run configured Webandco.MigrateDatabase.structure.commands on the destination database |
 | migration:copytables       | Copy rows from the source to the destination database and update sequences as needed   |
+
+## Performance
+
+The insert is split into chunks and sent via `INSERT INTO [table] (col1,col2,....) VALUES (...),(...),(...),..` to the destination database.  
+A local test migration of around 2.6 mio rows from MySql to PostgreSQL took around 5 mins.
 
 ## License
 
